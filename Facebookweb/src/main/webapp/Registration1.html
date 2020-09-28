@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>REGISTRATION PAGE</title>
+
+<script type="text/javascript">
+
+    function validate(){
+    	var v1=document.getElementById("n1").value;
+    	var v2=document.getElementById("n2").value;
+    	var v3=document.getElementById("n3").value;
+    	var v4=document.getElementById("n4").value;
+    
+    	
+    	if(v1.length==0||v2.length==0||v3.length==0||v4.length==0){
+    	     alert("Field should not be blank!")
+    	}
+    		
+    	else{
+    			alert("Welcome!")
+    		} 
+    	
+    }
+    
+    	
+    function generateCaptcha(){
+    		
+    	var v=parseInt((Math.random())*1000);
+    	document.getElementById("Result").innerHTML="<input type=text disabled id=nb value="+v+"><input type=button value=refresh onClick=generateCaptcha()><br>Enter above no<input type=text id=cc1><input type=button value=validate onclick=captchavalidate()>";
+    	
+    }
+    	
+    function captchavalidate(){
+    		var v1=document.getElementById("nb").value;
+        	var v2=document.getElementById("cc1").value;
+        	if(v1=v2){
+        		document.getElementById("nb").disabled=false;
+        	}
+    }
+        	
+    function passwordcreation(){
+        		var v1=document.getElementById("n2").value;
+            	
+            	if(v1.length<4){
+            		document.getElementById("rr").innerHTML="<font color=red>Password should not be less than 4 characters</font>";
+            	}
+            	
+            	if(v1.length>=4 && v1.length<8){
+            		document.getElementById("rr").innerHTML="<font color=blue>Weak Password!</font>";
+            	}
+            	
+            	if(v1.length>=8 && v1.length<10){
+            		document.getElementById("rr").innerHTML="<font color=pink>Moderate Password!</font>";
+            	}
+            	if(v1.length>10){
+            		document.getElementById("rr").innerHTML="<font color=green>Strong Password!</font>";
+            	}
+            	
+    }
+    
+</script>
+
+</head>
+<body>
+     <p align="center">Registration Page</p>
+     <center>
+      <form action="RegistrationServlet" method="post">
+      
+         Name: <input type=text name=name id="n1" class="nn" required><br>
+         Password: <input type=password name=password id="n2" required onkeyup="passwordcreation()"><br><div id="rr"></div>
+         Email: <input type=email name=email id="n3" required><br>
+         Address: <input type=text name=address id="n4" required onBlur="generateCaptcha()"><br>
+         
+         <div id="Result"></div>
+         <input type=Submit value=Register  onclick="validate()"> <br>
+         
+         </form>
+         </center>
+</body>
+</html>

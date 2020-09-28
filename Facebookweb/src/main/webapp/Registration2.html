@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Registration Page</title>
+<script type="text/javascript">
+
+    function validate(){
+    	var v1=document.getElementById("n1").value;
+    	var v2=document.getElementById("n2").value;
+    	var v3=document.getElementById("n3").value;
+    	var v4=document.getElementById("n4").value;
+    	
+    	if(v1.length==0||v2.length==0||v3.length==0||v4.length==0){
+    	     alert("Field should not be blank!")
+    	}
+    	else {
+    			alert("Welcome!")
+    	}
+    }
+    
+    
+    	
+    	function generateCaptcha(){
+    		var v=parseInt((Math.random())*1000);
+    		document.getElementById("Result").innerHTML="<input type=text disabled id=nb value="+v+"><input type=button value=refresh onClick=generateCaptcha()>Enter the captcha!<input type=text id=cc1><input type=button value=validate onclick=captchavalidate()>";
+    	}
+    	
+    	function captchavalidate(){
+    		var v1=document.getElementById("nb").value;
+        	var v2=document.getElementById("cc1").value;
+        	if(v1=v2){
+        		document.getElementById("nb").disabled=false;
+        	}
+    	}
+</script>
+</head>
+
+<body>
+     <p align="center">Register!</p>
+     <center>
+      <form action="RegistrationServlet1" method="post">
+      
+         Name: <input type=text name=name id="n1" class="nn" required><br>
+     Password: <input type=password name=password id="n2" required><br>
+        Email: <input type=email name=email id="n3" required><br>
+      Country: <select name="country" id="n4" required onBlur="generateCaptcha()"><br>
+                   <option value="india">India</option>
+                   <option value="usa">USA</option>
+                   </select>
+               
+         <div id="Result"></div>
+         <input type=Submit value=Register  onclick="validate()" > <br>
+         
+       </form>
+       </center>
+</body>
+</html>
