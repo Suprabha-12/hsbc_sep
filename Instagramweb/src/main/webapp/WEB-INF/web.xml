@@ -1,0 +1,37 @@
+<!DOCTYPE web-app PUBLIC
+ "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN"
+ "http://java.sun.com/dtd/web-app_2_3.dtd" >
+
+<web-app>
+  <display-name>Archetype Created Web Application</display-name>
+  <servlet>
+  	<servlet-name>RegistrationServlet1</servlet-name>
+  	<display-name>RegistrationServlet1</display-name>
+  	<description></description>
+  	<servlet-class>com.Instagramweb.controller.RegistrationServlet1</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>FriendList</servlet-name>
+  	<display-name>FriendList</display-name>
+  	<description></description>
+  	<servlet-class>com.Instagramweb.controller.FriendList</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>LoginServlet1</servlet-name>
+  	<display-name>LoginServlet1</display-name>
+  	<description></description>
+  	<servlet-class>com.Instagramweb.controller.LoginServlet1</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>RegistrationServlet1</servlet-name>
+  	<url-pattern>/RegistrationServlet1</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>FriendList</servlet-name>
+  	<url-pattern>/FriendList</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>LoginServlet1</servlet-name>
+  	<url-pattern>/LoginServlet1</url-pattern>
+  </servlet-mapping>
+</web-app>
